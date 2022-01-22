@@ -39,7 +39,7 @@ def formulario(request):
         numeroLote = request.POST['numeroLote']
         print(request.POST)
         Productos.objects.create(nombre=nombre,numeroSerie=numeroSerie,numeroLote=numeroLote)
-        return redirect('productos')
+        return redirect('inicio')
         
     return render(request,'AppEntrega/formulario.html')
 
