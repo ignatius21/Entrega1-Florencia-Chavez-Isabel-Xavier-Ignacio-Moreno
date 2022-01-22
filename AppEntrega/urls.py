@@ -1,11 +1,11 @@
 from django.urls import path
-from AppEntrega import views
+from AppEntrega.views import inicio,productos,nosotros,contacto,servicios
 
 urlpatterns = [
-    path('', views.inicio),
-    path('productos', views.productos),
-    path('nosotros', views.nosotros),
-    path('contacto', views.contacto),
-    path('servicios', views.servicios),
+    path('',inicio,name='inicio'),
+    path('productos',productos,name='productos'),
+    path('nosotros',nosotros,name='nosotros'),
+    path('contacto',contacto,name='contacto'),
+    path('servicios',servicios,name='servicios'),
     
 ]
