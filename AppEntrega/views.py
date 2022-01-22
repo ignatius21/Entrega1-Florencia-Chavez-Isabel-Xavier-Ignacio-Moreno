@@ -45,16 +45,18 @@ def formulario(request):
         formulario = Productoform()    
     return render(request,'AppEntrega/formulario.html',{'formulario': formulario})
 
+def buscarProductos(request):
+    return render(request,'AppEntrega/buscarproductos.html') 
+
+def Respuesta(request):
+    respuesta = f'Buscando producto:  {request.GET["producto"]}'
+    return HttpResponse(respuesta)
+    
 
 
 
 
-# def buscarProducto(request):
-#     return render(request,'AppEntrega/buscar.html')
 
-def buscar(request):
-    nombre = request.GET["productos"]
-    producto = Productos.objects.filter(productos=productos)
-    return render(request,'AppEntrega/buscar.html',{'Nombre':nombre,'Producto':producto})   
+   
 
 
