@@ -10,6 +10,9 @@
 {% block cambio %}
 
 <h1>Hola nosotros somos:</h1>
-  
+{%for nosotro in nosotros%}
+  {{nosotro}}
+  <br>
+{%endfor%}
 
 {% endblock %}

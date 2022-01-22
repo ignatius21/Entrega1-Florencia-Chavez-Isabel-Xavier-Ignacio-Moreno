@@ -21,7 +21,8 @@ def productos(request):
 
 
 def nosotros(request):
-    return render(request,'AppEntrega/nosotros.html')
+    return render(request,'AppEntrega/nosotros.html',
+    {'nosotros': Nosotros.objects.all()})
 
 
 
