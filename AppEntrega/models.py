@@ -4,8 +4,10 @@ from django.db import models
 
 class Productos(models.Model):
     nombre = models.CharField(max_length=15)
-    nuemeroSerie = models.IntegerField()
+    numeroSerie = models.IntegerField()
     numeroLote = models.IntegerField()
+    def __str__(self):
+        return f'Producto: {self.nombre} Numero de serie: ({self.numeroSerie}) Numero de lote: ({self.numeroLote})'
 class Nosotros(models.Model):
     cargo = models.CharField(max_length=15)
     nombre = models.CharField(max_length=15)

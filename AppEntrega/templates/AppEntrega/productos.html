@@ -10,5 +10,9 @@
 {% block cambio %}
 
 <h1>Nuestros productos son:</h1>
+  {%for producto in productos%}
+    {{producto}}
+      <br>
+  {%endfor%}  
 
 {% endblock %}
