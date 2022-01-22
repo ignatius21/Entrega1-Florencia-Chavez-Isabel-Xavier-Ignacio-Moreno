@@ -12,3 +12,5 @@ def contacto(request):
     return render(request,'AppEntrega/contacto.html')
 def servicios(request):
     return render(request,'AppEntrega/servicios.html')
+def formulario(request):
+    return render(request,'AppEntrega/formulario.html')
