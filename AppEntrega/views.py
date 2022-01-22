@@ -1,4 +1,5 @@
 
+
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
@@ -49,8 +50,10 @@ def buscarProductos(request):
     return render(request,'AppEntrega/buscarproductos.html') 
 
 def Respuesta(request):
-    respuesta = f'Buscando producto:  {request.GET["producto"]}'
-    return HttpResponse(respuesta)
+        nombre = request.GET["producto"]
+        producto= Productos.objects.filter(nombre=nombre)
+        return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'productos':producto})
+        
     
 
 

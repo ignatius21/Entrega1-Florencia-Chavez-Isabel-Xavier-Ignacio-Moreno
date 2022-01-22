@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado Busqueda</title>
+</head>
+<body>
+    Estos son los resultados de su busqueda:
+    {%if productos%}
+
+    <ul>
+        {%for producto in productos%}
+
+        <li> {{producto}} </li>
+
+
+        {%endfor%} 
+    </ul>
+
+
+    {%endif%}
+</body>
+</html>
