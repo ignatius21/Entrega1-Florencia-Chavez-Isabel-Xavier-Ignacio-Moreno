@@ -7,10 +7,13 @@
     <title>Ingresar Productos</title>
 </head>
 <body>
+    {%if formulario.errors%}
+        <p style="color: red">{{formulario.errors}}</p>
+    {%endif%}
     <form action="" method="POST">{% csrf_token%}
-        <p>Nombre: <input type="text" name="nombre"></p>
-        <p>Numero de Serie: <input type="number" name="numeroSerie"></p>
-        <p>Numero de Lote: <input type="number" name="numeroLote"></p>
+        <table>
+            {{ formulario.as_table}}
+        </table>
 
         <input type="submit" value="Cargar">
     </form>

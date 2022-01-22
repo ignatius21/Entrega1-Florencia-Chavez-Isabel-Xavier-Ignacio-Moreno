@@ -2,6 +2,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
+from AppEntrega.forms import Productoform
+
 from .models import *
 # Create your views here.
 
@@ -34,14 +36,25 @@ def servicios(request):
 
 def formulario(request):
     if request.method == 'POST':
-        nombre = request.POST['nombre']
-        numeroSerie = request.POST['numeroSerie']
-        numeroLote = request.POST['numeroLote']
-        print(request.POST)
-        Productos.objects.create(nombre=nombre,numeroSerie=numeroSerie,numeroLote=numeroLote)
-        return redirect('inicio')
-        
-    return render(request,'AppEntrega/formulario.html')
+        formulario = Productoform(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            Productos.objects.create(nombre=data['nombre'],numeroSerie=data['numeroSerie'],numeroLote=data['numeroLote'])
+            return redirect('inicio')
+    else:    
+        formulario = Productoform()    
+    return render(request,'AppEntrega/formulario.html',{'formulario': formulario})
 
+
+
+
+
+# def buscarProducto(request):
+#     return render(request,'AppEntrega/buscar.html')
+
+def buscar(request):
+    nombre = request.GET["productos"]
+    producto = Productos.objects.filter(productos=productos)
+    return render(request,'AppEntrega/buscar.html',{'Nombre':nombre,'Producto':producto})   
 
 
