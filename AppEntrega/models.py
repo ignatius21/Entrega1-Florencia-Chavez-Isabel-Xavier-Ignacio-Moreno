@@ -10,17 +10,16 @@ class Libros(models.Model):
         return f' Nombre del libro: "{self.nombre}" / Autor: ({self.autor}) / Genero: ({self.genero})'
 
 
-class Nosotros(models.Model):
+class Usuarios(models.Model):
     nombre = models.CharField(max_length=15)
     apellido = models.CharField(max_length=15)
     email = models.EmailField()
     def __str__(self):
-        return f'Hola yo soy {self.nombre} {self.apellido} y mi correo es {self.email}'
+        return f'Nombre de usuario: {self.nombre} {self.apellido} / Email: {self.email}'
 
 
 
 class Contacto(models.Model):
-    telefono = models.IntegerField()
     email = models.EmailField()
 
 

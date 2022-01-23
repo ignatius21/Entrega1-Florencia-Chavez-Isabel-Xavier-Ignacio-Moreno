@@ -20,11 +20,18 @@
         {%endfor%} 
     </ul>
     {% else %}
-    <p>No hay libros con esa descripcion</p>
+   <h1>
+    <p>No se encontraron libros con esa descripcion</p>
+   </h1> 
 
 
 
     {%endif%}
-    <p style="color:red">{{respuesta}}</p>
+    
+    <h1>
+        <p style="color:red">{{respuesta}}</p>
+    </h1>
+    
+
 </body>
 </html>

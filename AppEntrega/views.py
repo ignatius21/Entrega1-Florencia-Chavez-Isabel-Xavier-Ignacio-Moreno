@@ -20,9 +20,9 @@ def biblioteca(request):
 
 
 
-def nosotros(request):
-    return render(request,'AppEntrega/nosotros.html',
-    {'nosotros': Nosotros.objects.all()})
+def usuarios(request):
+    return render(request,'AppEntrega/usuarios.html',
+    {'usuarios': Usuarios.objects.all()})
 
 
 
@@ -46,8 +46,16 @@ def formulario(request):
         formulario = libroForm()    
     return render(request,'AppEntrega/formulario.html',{'formulario': formulario})
 
+
+
+
+
 def buscarLibro(request):
     return render(request,'AppEntrega/buscarLibro.html') 
+
+
+   
+    
 
 def Respuesta(request):
     if request.GET['libro']:
@@ -55,7 +63,7 @@ def Respuesta(request):
         libro= Libros.objects.filter(nombre__icontains=nombre)
         return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'libros':libro})
     else:
-        respuesta = 'No se encontraron libros con esas caracteristicas'
+        respuesta = 'Ingrese los datos nuevamente'
     return render(request,'AppEntrega/Respuesta.html',{"respuesta": respuesta})        
         
     

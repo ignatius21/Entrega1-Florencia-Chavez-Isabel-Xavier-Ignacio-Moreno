@@ -1,12 +1,13 @@
 from django.urls import path
 
-from AppEntrega.views import Respuesta, biblioteca, buscarLibro, inicio,nosotros,contacto,formulario
+
+from AppEntrega.views import Respuesta, biblioteca, buscarLibro, inicio,contacto,formulario,usuarios
 
 
 urlpatterns = [
     path('inicio',inicio,name='inicio'),
     path('biblioteca',biblioteca,name='biblioteca'),
-    path('nosotros',nosotros,name='nosotros'),
+    path('usuarios',usuarios,name='usuarios'),
     path('contacto',contacto,name='contacto'),
     path('formulario',formulario,name='formulario'),
     path('buscarLibro',buscarLibro,name='buscarLibro'),
