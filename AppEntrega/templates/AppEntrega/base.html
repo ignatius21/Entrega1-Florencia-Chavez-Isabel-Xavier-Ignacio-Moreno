@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     {%load static %}
@@ -8,6 +9,7 @@
 
       {%endblock%}
   </title>
+  
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -42,6 +44,7 @@
   <!--==========================
   Header
   ============================-->
+  
   <header id="header">
     <div class="container">
 
@@ -56,9 +59,8 @@
           <!-- <li class="menu-active"><a href="#hero">Inicio</a></li> -->
           <li><a href="{% url 'inicio' %}">Inicio</a></li>
           <li><a href="{% url 'nosotros' %}">Nosotros</a></li>
-          <li><a href="{% url 'servicios' %}">Servicios</a></li>
           <li><a href="{% url 'contacto' %}">Contacto</a></li>
-          <li><a href="{% url 'productos' %}">Productos</a></li>
+          <li><a href="{% url 'libros' %}">Biblioteca</a></li>
           <!-- <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -87,16 +89,17 @@
   ============================-->
   <section id="hero">
     <div class="hero-container">
+      <h1>Libreria</h1>
       <h1>CoderHouse</h1>
-      <h2> Django </h2>
-      <a href="{% url 'buscarProductos' %}" class="btn-get-started"> Buscar Productos </a>
-      <a href="{% url 'formulario' %}" class="btn-get-started">Ingresar Productos</a>
+      <h3>  by Django </h3>
+      <a href="{% url 'buscarLibro' %}" class="btn-get-started"> Buscar Libro </a>
+      <a href="{% url 'formulario' %}" class="btn-get-started">Ingresar Libros</a>
     </div>
   </section><!-- #hero -->
 
   <main id="main">
 
-    
+   
 
     
 

@@ -13,9 +13,9 @@ def inicio(request):
 
 
 
-def productos(request):
-    return render(request,'AppEntrega/productos.html',
-    {'productos': Productos.objects.all()})
+def libros(request):
+    return render(request,'AppEntrega/libros.html',
+    {'libros': Libros.objects.all()})
 
 
 
@@ -31,8 +31,7 @@ def contacto(request):
 
 
 
-def servicios(request):
-    return render(request,'AppEntrega/servicios.html')
+
 
 
 
@@ -41,19 +40,19 @@ def formulario(request):
         formulario = Productoform(request.POST)
         if formulario.is_valid():
             data = formulario.cleaned_data
-            Productos.objects.create(nombre=data['nombre'],numeroSerie=data['numeroSerie'],numeroLote=data['numeroLote'])
+            Libros.objects.create(nombre=data['nombre'],numeroSerie=data['numeroSerie'],numeroLote=data['numeroLote'])
             return redirect('inicio')
     else:    
         formulario = Productoform()    
     return render(request,'AppEntrega/formulario.html',{'formulario': formulario})
 
-def buscarProductos(request):
-    return render(request,'AppEntrega/buscarproductos.html') 
+def buscarLibro(request):
+    return render(request,'AppEntrega/buscarLibro.html') 
 
 def Respuesta(request):
-        nombre = request.GET["producto"]
-        producto= Productos.objects.filter(nombre=nombre)
-        return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'productos':producto})
+        nombre = request.GET["libro"]
+        libro= Libros.objects.filter(nombre=nombre)
+        return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'libros':libro})
         
     
 

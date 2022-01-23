@@ -5,5 +5,4 @@ from .models import  *
 
 admin.site.register(Contacto)
 admin.site.register(Nosotros)
-admin.site.register(Productos)
-admin.site.register(Servicios)
+admin.site.register(Libros)

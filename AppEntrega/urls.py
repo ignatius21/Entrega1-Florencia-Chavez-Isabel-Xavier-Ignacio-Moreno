@@ -1,15 +1,15 @@
 from django.urls import path
-from AppEntrega.views import Respuesta, buscarProductos, inicio,productos,nosotros,contacto,servicios,formulario
+
+from AppEntrega.views import Respuesta, buscarLibro, inicio,nosotros,contacto,formulario,libros
 
 
 urlpatterns = [
     path('inicio',inicio,name='inicio'),
-    path('productos',productos,name='productos'),
+    path('libros',libros,name='libros'),
     path('nosotros',nosotros,name='nosotros'),
     path('contacto',contacto,name='contacto'),
-    path('servicios',servicios,name='servicios'),
     path('formulario',formulario,name='formulario'),
-    path('buscarProductos',buscarProductos,name='buscarProductos'),
+    path('buscarLibro',buscarLibro,name='buscarLibro'),
     path('respuesta',Respuesta,name='respuesta'),
 
     
