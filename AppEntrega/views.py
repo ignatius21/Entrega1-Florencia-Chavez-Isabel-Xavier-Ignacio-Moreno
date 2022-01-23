@@ -3,7 +3,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from AppEntrega.forms import Productoform
+from AppEntrega.forms import libroForm
 
 from .models import *
 # Create your views here.
@@ -37,13 +37,13 @@ def contacto(request):
 
 def formulario(request):
     if request.method == 'POST':
-        formulario = Productoform(request.POST)
+        formulario = libroForm(request.POST)
         if formulario.is_valid():
             data = formulario.cleaned_data
             Libros.objects.create(nombre=data['Nombre'],autor=data['Autor'],genero=data['Genero'])
             return redirect('inicio')
     else:    
-        formulario = Productoform()    
+        formulario = libroForm()    
     return render(request,'AppEntrega/formulario.html',{'formulario': formulario})
 
 def buscarLibro(request):
@@ -52,7 +52,7 @@ def buscarLibro(request):
 def Respuesta(request):
     if request.GET['libro']:
         nombre = request.GET["libro"]
-        libro= Libros.objects.filter(nombre=nombre)
+        libro= Libros.objects.filter(nombre__icontains=nombre)
         return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'libros':libro})
     else:
         respuesta = 'No se encontraron libros con esas caracteristicas'
