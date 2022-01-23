@@ -13,9 +13,9 @@ def inicio(request):
 
 
 
-def libros(request):
-    return render(request,'AppEntrega/libros.html',
-    {'libros': Libros.objects.all()})
+def biblioteca(request):
+    return render(request,'AppEntrega/biblioteca.html',
+    {'biblioteca': Libros.objects.all()})
 
 
 
@@ -40,7 +40,7 @@ def formulario(request):
         formulario = Productoform(request.POST)
         if formulario.is_valid():
             data = formulario.cleaned_data
-            Libros.objects.create(nombre=data['nombre'],numeroSerie=data['numeroSerie'],numeroLote=data['numeroLote'])
+            Libros.objects.create(nombre=data['Nombre'],autor=data['Autor'],genero=data['Genero'])
             return redirect('inicio')
     else:    
         formulario = Productoform()    
@@ -50,9 +50,13 @@ def buscarLibro(request):
     return render(request,'AppEntrega/buscarLibro.html') 
 
 def Respuesta(request):
+    if request.GET['libro']:
         nombre = request.GET["libro"]
         libro= Libros.objects.filter(nombre=nombre)
         return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'libros':libro})
+    else:
+        respuesta = 'No se encontraron libros con esas caracteristicas'
+    return render(request,'AppEntrega/Respuesta.html',{"respuesta": respuesta})        
         
     
 

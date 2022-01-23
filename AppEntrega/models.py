@@ -4,10 +4,10 @@ from django.db import models
 
 class Libros(models.Model):
     nombre = models.CharField(max_length=15)
-    autor = models.CharField(max_length=20)
-    genero = models.CharField(max_length=20)
+    autor = models.CharField(max_length=15)
+    genero = models.CharField(max_length=15)
     def __str__(self):
-        return f' {self.nombre} / Autor: ({self.autor}) / Genero: ({self.genero})'
+        return f' Nombre del libro: "{self.nombre}" / Autor: ({self.autor}) / Genero: ({self.genero})'
 
 
 class Nosotros(models.Model):

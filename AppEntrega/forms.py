@@ -1,6 +1,6 @@
-from django.forms import Form,CharField,IntegerField
+from django.forms import Form,CharField
 
 class Productoform(Form):
     Nombre = CharField()
-    Autor = IntegerField()
-    Genero = IntegerField()
+    Autor = CharField()
+    Genero = CharField()

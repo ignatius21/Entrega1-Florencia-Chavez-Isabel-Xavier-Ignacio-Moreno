@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    Estos son los resultados de su busqueda:
+    Resultado de su busqueda:
     {%if libros%}
 
     <ul>
@@ -19,8 +19,12 @@
 
         {%endfor%} 
     </ul>
+    {% else %}
+    <p>No hay libros con esa descripcion</p>
+
 
 
     {%endif%}
+    <p style="color:red">{{respuesta}}</p>
 </body>
 </html>

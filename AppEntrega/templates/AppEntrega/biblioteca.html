@@ -2,7 +2,7 @@
   {%load static%}
  
   {% block titulo%}
-    Libros
+    Biblioteca
   {%endblock%}
 
 
@@ -10,7 +10,7 @@
 {% block cambio %}
 
 <h1>Nuestros libros son:</h1>
-  {%for libro in libros%}
+  {%for libro in biblioteca%}
     {{libro}}
       <br>
   {%endfor%}  
