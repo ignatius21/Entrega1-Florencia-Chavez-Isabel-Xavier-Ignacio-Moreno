@@ -36,16 +36,16 @@ def contacto(request):
 
 
 
-def formulario(request):
+def formularioLibro(request):
     if request.method == 'POST':
-        formulario = libroForm(request.POST)
-        if formulario.is_valid():
-            data = formulario.cleaned_data
+        formularioLibro = libroForm(request.POST)
+        if formularioLibro.is_valid():
+            data = formularioLibro.cleaned_data
             Libros.objects.create(nombre=data['Nombre'],autor=data['Autor'],genero=data['Genero'])
             return redirect('inicio')
     else:    
-        formulario = libroForm()    
-    return render(request,'AppEntrega/formulario.html',{'formulario': formulario})
+        formularioLibro = libroForm()    
+    return render(request,'AppEntrega/formularioLibro.html',{'formularioLibro': formularioLibro})
 
 
 
@@ -58,14 +58,14 @@ def buscarLibro(request):
    
     
 
-def Respuesta(request):
+def RespuestaLibro(request):
     if request.GET['libro']:
         nombre = request.GET["libro"]
         libro= Libros.objects.filter(nombre__icontains=nombre)
-        return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'libros':libro})
+        return render(request,'AppEntrega/respuestaLibro.html',{'nombres':nombre,'libros':libro})
     else:
         respuesta = 'Ingrese los datos nuevamente'
-    return render(request,'AppEntrega/Respuesta.html',{"respuesta": respuesta})       
+    return render(request,'AppEntrega/RespuestaLibro.html',{"respuesta": respuesta})       
 
 
 

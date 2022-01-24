@@ -7,12 +7,12 @@
     <title>Ingresar Libro</title>
 </head>
 <body>
-    {%if formulario.errors%}
-        <p style="color: red">{{formulario.errors}}</p>
+    {%if formularioLibro.errors%}
+        <p style="color: red">{{formularioLibro.errors}}</p>
     {%endif%}
     <form action="" method="POST">{% csrf_token%}
         <table>
-            {{ formulario.as_table}}
+            {{ formularioLibro.as_table}}
         </table>
 
         <input type="submit" value="Cargar Libro">

@@ -1,7 +1,7 @@
 from django.urls import path
 
 
-from AppEntrega.views import Respuesta, biblioteca, buscarLibro, formularioUsuarios, inicio,contacto,formulario,usuarios
+from AppEntrega.views import RespuestaLibro, biblioteca, buscarLibro, formularioLibro, formularioUsuarios, inicio,contacto,usuarios
 
 
 urlpatterns = [
@@ -9,9 +9,9 @@ urlpatterns = [
     path('biblioteca',biblioteca,name='biblioteca'),
     path('usuarios',usuarios,name='usuarios'),
     path('contacto',contacto,name='contacto'),
-    path('formulario',formulario,name='formulario'),
+    path('formularioLibro',formularioLibro,name='formularioLibro'),
     path('buscarLibro',buscarLibro,name='buscarLibro'),
-    path('respuesta',Respuesta,name='respuesta'),
+    path('respuestaLibro',RespuestaLibro,name='respuestaLibro'),
     path('formularioUsuarios',formularioUsuarios,name='formularioUsuarios'),
 
     
