@@ -1,9 +1,10 @@
 
 
+import email
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from AppEntrega.forms import libroForm
+from AppEntrega.forms import libroForm, usuarioForm
 
 from .models import *
 # Create your views here.
@@ -64,7 +65,23 @@ def Respuesta(request):
         return render(request,'AppEntrega/respuesta.html',{'nombres':nombre,'libros':libro})
     else:
         respuesta = 'Ingrese los datos nuevamente'
-    return render(request,'AppEntrega/Respuesta.html',{"respuesta": respuesta})        
+    return render(request,'AppEntrega/Respuesta.html',{"respuesta": respuesta})       
+
+
+
+
+
+def formularioUsuarios(request):
+    if request.method == 'POST':
+        formulario = usuarioForm(request.POST)
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+            Usuarios.objects.create(nombre=data['Nombre'],apellido=data['Apellido'],email=data['Email'])
+            return redirect('usuarios')
+    else:    
+        formularioUsuario = usuarioForm()    
+    return render(request,'AppEntrega/formularioUsuarios.html',{'formularioUsuarios': formularioUsuario})
+
         
     
 
