@@ -7,9 +7,7 @@
     <title>Ingresar Libro</title>
 </head>
 <body>
-    {%if formularioLibro.errors%}
-        <p style="color: red">{{formularioLibro.errors}}</p>
-    {%endif%}
+    <h2>Ingresar Libro</h2>
     <form action="" method="POST">{% csrf_token%}
         <table>
             {{ formularioLibro.as_table}}
