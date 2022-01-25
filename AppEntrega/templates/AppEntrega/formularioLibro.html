@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresar Libro</title>
+    <style>
+        body {
+            background: rgb(68, 166, 223);
+            
+        }
+    </style>
 </head>
 <body>
-    <h2>Ingresar Libro</h2>
+    <h2 style="font-family: Arial;">Ingresar Libro</h2>
     <form action="" method="POST">{% csrf_token%}
-        <table>
+        <table style="font-family: Arial;">
             {{ formularioLibro.as_table}}
         </table>
 

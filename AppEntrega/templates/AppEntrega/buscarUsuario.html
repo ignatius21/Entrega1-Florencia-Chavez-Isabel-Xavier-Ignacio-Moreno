@@ -5,14 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Usuario</title>
+        <style>
+            body {
+                background: rgb(70, 29, 60);
+                
+            }
+        </style>
 </head>
-
-<body>
-    <h2>Buscar Usuarios</h2>
+<body>   
+    <h2 style="color: antiquewhite;font-family: Arial;">Encuentranos</h2>
     <form action="{%url 'respuestaUsuario' %}" method="GET">
         <input type="text" name="usuario" required>
-        <input type="submit" value="Buscar usuario">
+        <input type="submit" value="Buscar usuario"">
+        
     </form>
+    
 </body>
 
 </html>

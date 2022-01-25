@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Libro</title>
+    <style>
+        body {
+            background: rgb(11, 87, 131);
+            
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Buscar Libros</h2>
+    <h2 style="color: antiquewhite;font-family: Arial;">Buscar Libros</h2>
 
     <form action="{%url 'respuestaLibro' %}" method="GET">
         <input type="text" name="libro" required>

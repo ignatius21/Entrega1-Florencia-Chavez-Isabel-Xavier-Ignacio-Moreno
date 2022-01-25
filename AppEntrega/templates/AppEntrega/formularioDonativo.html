@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresar Donativo</title>
+    <style>
+        body {
+            background: rgb(99, 121, 73);
+            
+        }
+    </style>
     
 </head>
 <body>   
-    <h2>Contribuir</h2>
+    <h2 style="color: antiquewhite;font-family: Arial;">Contribuir</h2>
     <form action="" method="POST">{% csrf_token%}
-        <table>
+        <table style="color: antiquewhite;font-family: Arial;">
             {{ formularioDonativo.as_table}}
         </table>
 

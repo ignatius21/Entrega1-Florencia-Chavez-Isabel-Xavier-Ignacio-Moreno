@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresar Usuario</title>
+    <style>
+        body {
+            background: rgb(68, 18, 3);
+            
+        }
+    </style>
 </head>
 <body>
-    <h2>Alta usuario</h2>
+    <h2 style="color: antiquewhite;font-family:Arial">Alta Usuario</h2>
     <form action="" method="POST">{% csrf_token%}
-        <table>
+        <table style="color: antiquewhite;font-family: Arial;">
             {{ formularioUsuarios.as_table}}
         </table>
 
