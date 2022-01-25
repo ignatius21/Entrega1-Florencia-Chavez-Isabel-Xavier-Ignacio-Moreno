@@ -23,7 +23,7 @@ class Donativo(models.Model):
     nombre = models.CharField(max_length=15)
     donativo = models.IntegerField()
     def __str__(self):
-        return f'La persona {self.nombre} ha realizado una contribucion de ${self.donativo}'
+        return f'{self.nombre} ha donado ${self.donativo}...muchas gracias!!!'
     
 
 
