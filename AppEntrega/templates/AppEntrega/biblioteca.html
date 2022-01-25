@@ -4,7 +4,21 @@
   {% block titulo%}
     Biblioteca
   {%endblock%}
-
+  {%block fondo%}
+  <section id="hero">
+    <div class="hero-container">
+      
+      <h1>BIBLIOTECA</h1>
+      <h3>  by Django </h3>
+      <a href="{% url 'formularioLibro' %}" class="btn-get-started">Ingresar Libro</a>
+      <a href="{% url 'buscarLibro' %}" class="btn-get-started"> Buscar Libro </a>
+    </div>
+  </section><!-- #hero -->
+  
+  <main id="main">
+  
+  
+  {%endblock%}
 
 
 {% block cambio %}
