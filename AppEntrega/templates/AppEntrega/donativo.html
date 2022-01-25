@@ -1,0 +1,31 @@
+{%extends 'AppEntrega/base.html' %}
+  {%load static%}
+ 
+  {% block titulo%}
+    Donativos
+  {%endblock%}
+  {%block fondo%}
+  <section id="hero">
+    <div class="hero-container">
+      
+      <h1>DONATIVOS</h1>
+      <h3>  by Django </h3>
+      <a href="{% url 'formularioDonativo' %}" class="btn-get-started">Donar</a>
+      <a href="{% url 'buscarDonativo' %}" class="btn-get-started"> Buscar Donacion </a>
+    </div>
+  </section><!-- #hero -->
+  
+  <main id="main">
+  
+  
+  {%endblock%}
+
+
+{% block cambio %}
+
+<h1>Agradecemos a las siguientes personas por sus donaciones:</h1>
+{%for donativo in donativos%}
+{{donativo}}
+<br>
+{%endfor%}
+{% endblock %}

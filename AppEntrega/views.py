@@ -4,7 +4,7 @@ import email
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 
-from AppEntrega.forms import libroForm, usuarioForm
+from AppEntrega.forms import donativoForm, libroForm, usuarioForm
 
 from .models import *
 # Create your views here.
@@ -27,8 +27,9 @@ def usuarios(request):
 
 
 
-def contacto(request):
-    return render(request,'AppEntrega/contacto.html')
+def donativo(request):
+    return render(request,'AppEntrega/donativo.html',
+    {'donativos':Donativo.objects.all()})
 
 
 
@@ -59,13 +60,10 @@ def buscarLibro(request):
     
 
 def RespuestaLibro(request):
-    if request.GET['libro']:
-        nombre = request.GET["libro"]
-        libro= Libros.objects.filter(nombre__icontains=nombre)
-        return render(request,'AppEntrega/respuestaLibro.html',{'nombres':nombre,'libros':libro})
-    else:
-        respuesta = 'Ingrese los datos nuevamente'
-    return render(request,'AppEntrega/RespuestaLibro.html',{"respuesta": respuesta})       
+    nombre = request.GET["libro"]
+    libro= Libros.objects.filter(nombre__icontains=nombre)
+    return render(request,'AppEntrega/respuestaLibro.html',{'nombres':nombre,'libros':libro})
+           
 
 
 
@@ -92,13 +90,41 @@ def buscarUsuario(request):
 
 
 def respuestaUsuario(request):
-    if request.GET['usuario']:
-        nombre = request.GET["usuario"]
-        usuario= Usuarios.objects.filter(nombre__icontains=nombre)
-        return render(request,'AppEntrega/respuestaUsuario.html',{'nombres':nombre,'usuarios':usuario})
-    else:
-        respuesta = 'No existe el usuario'
-    return render(request,'AppEntrega/respuestaUsuario.html',{"respuesta": respuesta})    
+    nombre = request.GET["usuario"]
+    usuario= Usuarios.objects.filter(nombre__icontains=nombre)
+    return render(request,'AppEntrega/respuestaUsuario.html',{'nombres':nombre,'usuarios':usuario})
+      
+
+
+
+
+
+
+def formularioDonativo(request):
+    if request.method == 'POST':
+        formularioDonativo = donativoForm(request.POST)
+        if formularioDonativo.is_valid():
+            data = formularioDonativo.cleaned_data
+            Donativo.objects.create(nombre=data['Nombre'], donativo=data['Monto'])
+            return redirect('donativo')
+    else:    
+        formularioDonativo = donativoForm()    
+    return render(request,'AppEntrega/formularioDonativo.html',{'formularioDonativo': formularioDonativo})
+
+
+
+
+
+def buscarDonativo(request):
+    return render(request,'AppEntrega/buscarDonativo.html')    
+
+
+
+def respuestaDonativo(request):
+    donativo = request.GET["donativo"]
+    monto = Donativo.objects.filter(donativo__icontains=donativo)
+    return render(request,'AppEntrega/respuestaDonativo.html',{'nombres':donativo,'montos':monto})
+        
 
         
     
