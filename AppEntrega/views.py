@@ -82,6 +82,24 @@ def formularioUsuarios(request):
         formularioUsuario = usuarioForm()    
     return render(request,'AppEntrega/formularioUsuarios.html',{'formularioUsuarios': formularioUsuario})
 
+
+
+
+
+def buscarUsuario(request):
+    return render(request,'AppEntrega/buscarUsuario.html')    
+
+
+
+def respuestaUsuario(request):
+    if request.GET['usuario']:
+        nombre = request.GET["usuario"]
+        usuario= Usuarios.objects.filter(nombre__icontains=nombre)
+        return render(request,'AppEntrega/respuestaUsuario.html',{'nombres':nombre,'usuarios':usuario})
+    else:
+        respuesta = 'No existe el usuario'
+    return render(request,'AppEntrega/respuestaUsuario.html',{"respuesta": respuesta})    
+
         
     
 
