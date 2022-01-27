@@ -15,6 +15,7 @@
     <h3>  by Django </h3>
     <a href="{% url 'formularioUsuarios' %}" class="btn-get-started">Ingresar Usuario</a>
     <a href="{% url 'buscarUsuario' %}" class="btn-get-started"> Buscar Usuario </a>
+    
   </div>
 </section><!-- #hero -->
 
@@ -31,6 +32,7 @@
 <h1>Usuarios Registrados:</h1>
 {%for usuario in usuarios%}
   {{usuario}}
+  <a href="{% url 'borrarUsuario' usuario.id  %}" class="btn-get-started"> Borrar </a>
   <br>
 {%endfor%}
 

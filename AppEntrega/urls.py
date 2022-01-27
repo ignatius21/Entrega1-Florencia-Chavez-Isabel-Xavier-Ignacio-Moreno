@@ -1,7 +1,7 @@
 from django.urls import path
 
 
-from AppEntrega.views import RespuestaLibro, biblioteca, buscarDonativo, buscarLibro, buscarUsuario, formularioDonativo, formularioLibro, formularioUsuarios, inicio,donativo, respuestaDonativo, respuestaUsuario,usuarios
+from AppEntrega.views import RespuestaLibro, biblioteca, borrarUsuario, buscarDonativo, buscarLibro, buscarUsuario, formularioDonativo, formularioLibro, formularioUsuarios, inicio,donativo, respuestaDonativo, respuestaUsuario,usuarios
 
 
 urlpatterns = [
@@ -18,6 +18,7 @@ urlpatterns = [
     path('buscarDonativo',buscarDonativo,name='buscarDonativo'),
     path('formularioDonativo',formularioDonativo,name='formularioDonativo'),
     path('respuestaDonativo',respuestaDonativo,name='respuestaDonativo'),
+    path('borrarUsuario/delete/<id_usuario>',borrarUsuario,name='borrarUsuario'),
     
 
     

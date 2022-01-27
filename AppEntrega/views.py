@@ -127,7 +127,12 @@ def respuestaDonativo(request):
         
 
         
-    
+def borrarUsuario(request,id_usuario):
+    usuario = Usuarios.objects.get(id=id_usuario)
+    usuario.delete()
+
+    return redirect('usuarios') 
+
 
 
 
