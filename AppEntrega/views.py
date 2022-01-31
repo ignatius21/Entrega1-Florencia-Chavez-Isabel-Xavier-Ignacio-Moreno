@@ -122,7 +122,7 @@ def buscarDonativo(request):
 
 def respuestaDonativo(request):
     donativo = request.GET["donativo"]
-    monto = Donativo.objects.filter(donativo__icontains=donativo)
+    monto = Donativo.objects.filter(nombre=donativo)
     return render(request,'AppEntrega/respuestaDonativo.html',{'nombres':donativo,'montos':monto})
         
 
