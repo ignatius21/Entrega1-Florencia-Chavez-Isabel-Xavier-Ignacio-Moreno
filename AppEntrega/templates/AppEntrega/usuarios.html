@@ -32,6 +32,8 @@
 <h1>Usuarios Registrados:</h1>
 {%for usuario in usuarios%}
   {{usuario}}
+  
+  <a href="{% url 'verUsuario' usuario.id  %}" class="btn-get-started"> Ver </a>
   <a href="{% url 'borrarUsuario' usuario.id  %}" class="btn-get-started"> Borrar </a>
   <a href="{% url 'actualizarUsuario' usuario.id  %}" class="btn-get-started"> Actualizar </a>
   <br>

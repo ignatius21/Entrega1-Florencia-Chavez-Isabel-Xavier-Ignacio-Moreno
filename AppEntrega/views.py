@@ -66,14 +66,6 @@ def RespuestaLibro(request):
 
 
 
-def buscarUsuario(request):
-    return render(request,'AppEntrega/buscarUsuario.html')    
-
-
-def respuestaUsuario(request):
-    nombre = request.GET["usuario"]
-    usuario= Usuarios.objects.filter(nombre__icontains=nombre)
-    return render(request,'AppEntrega/respuestaUsuario.html',{'nombres':nombre,'usuarios':usuario})
       
 
 
@@ -106,36 +98,6 @@ def respuestaDonativo(request):
 
 
         
-def borrarUsuario(request,id_usuario):
-    usuario = Usuarios.objects.get(id=id_usuario)
-    usuario.delete()
-
-    return redirect('usuarios') 
-
-
-# def actualizarUsuario(request,id_usuario):
-#     usuario = Usuarios.objects.get(id=id_usuario)
-#     if request.method == 'POST':
-#         formulario = usuarioForm(request.POST)
-        
-
-#         if formulario.is_valid():
-#             data = formulario.cleaned_data
-
-#             usuario.nombre = data['nombre'],
-#             usuario.apellido = data['apellido'],
-#             usuario.email = data['email']
-#             usuario.save()
-#             return redirect('usuarios')
-#     else:    
-#         formulario = usuarioForm(model_to_dict(usuario))    
-#     return render(request,'AppEntrega/formularioActualizar.html',{'formularioActualizar': formulario})
-
-
-
-
-
-
 
 
 class UsuarioListView(ListView):
@@ -159,9 +121,24 @@ class UsuarioUpdateView(UpdateView):
     model = Usuarios
     success_url = reverse_lazy('usuarios')
     fields = ['nombre','apellido','email']
-    template_name = 'AppEntrega/formActualizar.html'    
+    template_name = 'AppEntrega/formActualizar.html'  
 
 
+class UsuarioDeleteView(DeleteView):
+    model = Usuarios
+    success_url = reverse_lazy('usuarios')
+    template_name = 'AppEntrega/usuario_confirm_delete.html'
+
+
+
+def buscarUsuario(request):
+    return render(request,'AppEntrega/buscarUsuario.html')    
+
+
+def respuestaUsuario(request):
+    nombre = request.GET["usuario"]
+    usuario= Usuarios.objects.filter(nombre__icontains=nombre)
+    return render(request,'AppEntrega/respuestaUsuario.html',{'nombres':nombre,'usuarios':usuario})
 
 
    

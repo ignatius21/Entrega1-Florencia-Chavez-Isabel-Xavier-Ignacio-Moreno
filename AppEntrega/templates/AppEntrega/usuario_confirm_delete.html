@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Usuario</title>
+    <style>
+        body {
+            background: rgb(182, 132, 155);
+            
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: antiquewhite;font-family:Arial">Eliminar Usuario:</h2>
+    <form action="" method="POST">{% csrf_token%}
+        <ul>
+            <li>Nombre: {{usuarios.nombre}}</li>
+            <li>Apellido: {{usuarios.apellido}}</li>
+            <li>Email: {{usuarios.email}}</li>
+        </ul>
+        
+
+        <input type="submit" value="Desea eliminar el usuario?">
+    </form>
+</body>
+</html>

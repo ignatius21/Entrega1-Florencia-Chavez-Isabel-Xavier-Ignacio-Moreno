@@ -14,7 +14,7 @@ class Usuarios(models.Model):
     apellido = models.CharField(max_length=15)
     email = models.EmailField()
     def __str__(self):
-        return f'Nombre de usuario: {self.nombre} {self.apellido} / Email: {self.email}'
+        return f'Usuario:  {self.nombre} '
 
 
 

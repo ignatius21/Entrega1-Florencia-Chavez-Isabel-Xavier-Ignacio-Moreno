@@ -7,19 +7,20 @@
     <title>Detalle Usuario</title>
     <style>
         body {
-            background: rgb(68, 18, 3);
+            background: rgb(133, 109, 102);
             
         }
     </style>
 </head>
 <body>
-    <h2 style="color: antiquewhite;font-family:Arial">Detalle Usuario</h2>
-             {% csrf_token%}
+    <h2 style="color: antiquewhite;font-family:Arial">Detalle del usuario</h2>
+    <form action="" method="POST"> 
+    {% csrf_token%}
 
        <ul>
-           <li>Nombre: {{usuario.nombre}}</li>
-           <li>Apellido: {{usuario.apellido}}</li>
-           <li>Email: {{usuario.email}}</li>
+           <li>Nombre: {{usuarios.nombre}}</li>
+           <li>Apellido: {{usuarios.apellido}}</li>
+           <li>Email: {{usuarios.email}}</li>
        </ul>      
         
     </form>
