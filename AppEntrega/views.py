@@ -1,12 +1,12 @@
-
-
-import email
+from django.forms import model_to_dict
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-
+from django.urls import reverse_lazy
 from AppEntrega.forms import donativoForm, libroForm, usuarioForm
-
 from .models import *
+from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView
+
+
 # Create your views here.
 
 def inicio(request):
@@ -49,36 +49,18 @@ def formularioLibro(request):
     return render(request,'AppEntrega/formularioLibro.html',{'formularioLibro': formularioLibro})
 
 
-
-
-
 def buscarLibro(request):
     return render(request,'AppEntrega/buscarLibro.html') 
 
-
    
-    
-
 def RespuestaLibro(request):
     nombre = request.GET["libro"]
     libro= Libros.objects.filter(nombre__icontains=nombre)
     return render(request,'AppEntrega/respuestaLibro.html',{'nombres':nombre,'libros':libro})
-           
 
 
 
 
-
-def formularioUsuarios(request):
-    if request.method == 'POST':
-        formulario = usuarioForm(request.POST)
-        if formulario.is_valid():
-            data = formulario.cleaned_data
-            Usuarios.objects.create(nombre=data['Nombre'],apellido=data['Apellido'],email=data['Email'])
-            return redirect('usuarios')
-    else:    
-        formularioUsuario = usuarioForm()    
-    return render(request,'AppEntrega/formularioUsuarios.html',{'formularioUsuarios': formularioUsuario})
 
 
 
@@ -86,7 +68,6 @@ def formularioUsuarios(request):
 
 def buscarUsuario(request):
     return render(request,'AppEntrega/buscarUsuario.html')    
-
 
 
 def respuestaUsuario(request):
@@ -112,12 +93,8 @@ def formularioDonativo(request):
     return render(request,'AppEntrega/formularioDonativo.html',{'formularioDonativo': formularioDonativo})
 
 
-
-
-
 def buscarDonativo(request):
     return render(request,'AppEntrega/buscarDonativo.html')    
-
 
 
 def respuestaDonativo(request):
@@ -125,6 +102,8 @@ def respuestaDonativo(request):
     monto = Donativo.objects.filter(nombre=donativo)
     return render(request,'AppEntrega/respuestaDonativo.html',{'nombres':donativo,'montos':monto})
         
+
+
 
         
 def borrarUsuario(request,id_usuario):
@@ -134,6 +113,53 @@ def borrarUsuario(request,id_usuario):
     return redirect('usuarios') 
 
 
+# def actualizarUsuario(request,id_usuario):
+#     usuario = Usuarios.objects.get(id=id_usuario)
+#     if request.method == 'POST':
+#         formulario = usuarioForm(request.POST)
+        
+
+#         if formulario.is_valid():
+#             data = formulario.cleaned_data
+
+#             usuario.nombre = data['nombre'],
+#             usuario.apellido = data['apellido'],
+#             usuario.email = data['email']
+#             usuario.save()
+#             return redirect('usuarios')
+#     else:    
+#         formulario = usuarioForm(model_to_dict(usuario))    
+#     return render(request,'AppEntrega/formularioActualizar.html',{'formularioActualizar': formulario})
+
+
+
+
+
+
+
+
+class UsuarioListView(ListView):
+    model = Usuarios
+    template_name = 'AppEntrega/usuarios.html'
+    context_object_name = 'usuarios'
+
+class UsuarioDetailView(DetailView):
+    model = Usuarios
+    template_name = 'AppEntrega/ver_usuario.html'
+
+
+class UsuarioCreateView(CreateView):
+    model = Usuarios
+    success_url = reverse_lazy('usuarios')
+    fields = ['nombre','apellido','email']
+    template_name = 'AppEntrega/usuario_form.html'
+
+
+class UsuarioUpdateView(UpdateView):
+    model = Usuarios
+    success_url = reverse_lazy('usuarios')
+    fields = ['nombre','apellido','email']
+    template_name = 'AppEntrega/formActualizar.html'    
 
 
 

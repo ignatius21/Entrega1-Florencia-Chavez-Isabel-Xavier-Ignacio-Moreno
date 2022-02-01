@@ -1,8 +1,7 @@
 from django.db import models
-
 # Create your models here.
 
-class Libros(models.Model):
+class Libros(models.Model): 
     nombre = models.CharField(max_length=15)
     autor = models.CharField(max_length=15)
     genero = models.CharField(max_length=15)

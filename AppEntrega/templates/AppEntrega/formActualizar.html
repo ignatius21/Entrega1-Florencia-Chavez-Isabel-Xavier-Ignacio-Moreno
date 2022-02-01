@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actulizar Usuario</title>
+    <style>
+        body {
+            background: rgb(51, 61, 94);
+            
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: antiquewhite;font-family:Arial">Actualizar Usuario</h2>
+    <form action="" method="POST">{% csrf_token%}
+        <table style="color: antiquewhite;font-family: Arial;">
+            {{ form.as_table}}
+        </table>
+
+        <input type="submit" value="Actualizar Usuario">
+    </form>
+</body>
+</html>
