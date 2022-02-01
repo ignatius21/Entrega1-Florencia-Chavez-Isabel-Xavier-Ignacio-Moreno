@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from proyectoEntrega.views import login_request
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('AppEntrega/',include('AppEntrega.urls')),
+    path('login',login_request,name='login')
 ]

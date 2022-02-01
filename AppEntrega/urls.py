@@ -5,7 +5,8 @@ from AppEntrega.views import BibliotecaCreateView, BibliotecaListView, DonativoC
 
 
 urlpatterns = [
-    path('inicio',inicio,name='inicio'),
+    path('',inicio,name='inicio'),
+    
 
 
     path('donativo',DonativoListView.as_view(),name='donativo'),
