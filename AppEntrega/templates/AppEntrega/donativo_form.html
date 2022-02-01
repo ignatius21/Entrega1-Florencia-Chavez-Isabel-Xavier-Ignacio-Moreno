@@ -17,7 +17,7 @@
     <h2 style="color: antiquewhite;font-family: Arial;">Contribuir</h2>
     <form action="" method="POST">{% csrf_token%}
         <table style="color: antiquewhite;font-family: Arial;">
-            {{ formularioDonativo.as_table}}
+            {{ form.as_table}}
         </table>
 
         <input type="submit" value="Donar">

@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    <h2 style="color: antiquewhite;font-family:Arial">Eliminar Usuario:</h2>
+    <h2 style="color: antiquewhite;font-family:Arial">Desea eliminar el usuario?:</h2>
     <form action="" method="POST">{% csrf_token%}
         <ul>
             <li>Nombre: {{usuarios.nombre}}</li>
@@ -22,10 +22,10 @@
         </ul>
         
 
-        <input type="submit" value="Desea eliminar el usuario?">
+        <input type="submit" value="Eliminar">
         <br>
         <br>
-        <input type="button" value="Volver" onClick="history.go(-1);">
+        <input type="button" value="Volver" onClick="history.go(-1)">
     </form>
 </body>
 </html>

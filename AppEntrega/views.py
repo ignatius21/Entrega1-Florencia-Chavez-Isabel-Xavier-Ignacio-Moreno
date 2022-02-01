@@ -12,20 +12,13 @@ from django.views.generic import ListView,DetailView,DeleteView,CreateView,Updat
 def inicio(request):
     return render(request,'AppEntrega/inicio.html')
 
-
-
 def biblioteca(request):
     return render(request,'AppEntrega/biblioteca.html',
     {'biblioteca': Libros.objects.all()})
 
-
-
-
 def usuarios(request):
     return render(request,'AppEntrega/usuarios.html',
     {'usuarios': Usuarios.objects.all()})
-
-
 
 def donativo(request):
     return render(request,'AppEntrega/donativo.html',
@@ -37,16 +30,17 @@ def donativo(request):
 
 
 
-def formularioLibro(request):
-    if request.method == 'POST':
-        formularioLibro = libroForm(request.POST)
-        if formularioLibro.is_valid():
-            data = formularioLibro.cleaned_data
-            Libros.objects.create(nombre=data['Nombre'],autor=data['Autor'],genero=data['Genero'])
-            return redirect('inicio')
-    else:    
-        formularioLibro = libroForm()    
-    return render(request,'AppEntrega/formularioLibro.html',{'formularioLibro': formularioLibro})
+
+class BibliotecaCreateView(CreateView):
+    model = Libros
+    success_url = reverse_lazy('biblioteca')
+    fields = ['nombre','autor','genero']
+    template_name = 'AppEntrega/libro_form.html'
+
+class BibliotecaListView(ListView):
+    model = Libros
+    template_name = 'AppEntrega/biblioteca.html'
+    context_object_name = 'biblioteca'    
 
 
 def buscarLibro(request):
@@ -66,28 +60,19 @@ def RespuestaLibro(request):
 
 
 
-      
+class DonativoCreateView(CreateView):
+    model = Donativo
+    success_url = reverse_lazy('donativo')
+    fields = ['nombre','donativo']
+    template_name = 'AppEntrega/donativo_form.html'  
 
-
-
-
-
-
-def formularioDonativo(request):
-    if request.method == 'POST':
-        formularioDonativo = donativoForm(request.POST)
-        if formularioDonativo.is_valid():
-            data = formularioDonativo.cleaned_data
-            Donativo.objects.create(nombre=data['Nombre'], donativo=data['Monto'])
-            return redirect('donativo')
-    else:    
-        formularioDonativo = donativoForm()    
-    return render(request,'AppEntrega/formularioDonativo.html',{'formularioDonativo': formularioDonativo})
-
+class DonativoListView(ListView):
+    model = Donativo
+    template_name = 'AppEntrega/donativo.html'
+    context_object_name = 'donativos'
 
 def buscarDonativo(request):
     return render(request,'AppEntrega/buscarDonativo.html')    
-
 
 def respuestaDonativo(request):
     donativo = request.GET["donativo"]
@@ -97,7 +82,8 @@ def respuestaDonativo(request):
 
 
 
-        
+
+
 
 
 class UsuarioListView(ListView):
@@ -123,12 +109,10 @@ class UsuarioUpdateView(UpdateView):
     fields = ['nombre','apellido','email']
     template_name = 'AppEntrega/formActualizar.html'  
 
-
 class UsuarioDeleteView(DeleteView):
     model = Usuarios
     success_url = reverse_lazy('usuarios')
     template_name = 'AppEntrega/usuario_confirm_delete.html'
-
 
 
 def buscarUsuario(request):

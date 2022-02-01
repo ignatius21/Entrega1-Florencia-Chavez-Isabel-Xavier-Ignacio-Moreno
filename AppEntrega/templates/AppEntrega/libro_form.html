@@ -16,7 +16,7 @@
     <h2 style="font-family: Arial;">Ingresar Libro</h2>
     <form action="" method="POST">{% csrf_token%}
         <table style="font-family: Arial;">
-            {{ formularioLibro.as_table}}
+            {{ form.as_table}}
         </table>
 
         <input type="submit" value="Cargar Libro">
