@@ -1,8 +1,5 @@
-from django.forms import model_to_dict
-from django.shortcuts import redirect, render
-from django.http import HttpResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from AppEntrega.forms import donativoForm, libroForm, usuarioForm
 from .models import *
 from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView
 
@@ -11,6 +8,9 @@ from django.views.generic import ListView,DetailView,DeleteView,CreateView,Updat
 
 def inicio(request):
     return render(request,'AppEntrega/inicio.html')
+
+def inicio_login(request):
+    return render(request,'AppEntrega/inicio_login.html')
 
 def biblioteca(request):
     return render(request,'AppEntrega/biblioteca.html',

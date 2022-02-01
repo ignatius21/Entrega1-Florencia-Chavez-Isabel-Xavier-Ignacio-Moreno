@@ -1,11 +1,12 @@
 from django.urls import path
 
 
-from AppEntrega.views import BibliotecaCreateView, BibliotecaListView, DonativoCreateView, DonativoListView, RespuestaLibro, UsuarioCreateView, UsuarioDeleteView,UsuarioDetailView, UsuarioListView, UsuarioUpdateView,buscarDonativo, buscarLibro, buscarUsuario,inicio, respuestaDonativo, respuestaUsuario
+from AppEntrega.views import BibliotecaCreateView,inicio_login, BibliotecaListView, DonativoCreateView, DonativoListView, RespuestaLibro, UsuarioCreateView, UsuarioDeleteView,UsuarioDetailView, UsuarioListView, UsuarioUpdateView,buscarDonativo, buscarLibro, buscarUsuario,inicio, respuestaDonativo, respuestaUsuario
 
 
 urlpatterns = [
-    path('',inicio,name='inicio'),
+    path('inicio',inicio,name='inicio'),
+    path('',inicio_login,name='login'),
     
 
 
