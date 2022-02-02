@@ -14,8 +14,6 @@ def login_request(request):
             if  user is not None:
                 login(request,user)
                 return redirect('inicio')
-            # else:
-            #     return render(request,'login.html',{'form': form,'error':'Usuario o contraseña no validos'})
 
         else:
             return render(request,'login.html',{'form': form})    

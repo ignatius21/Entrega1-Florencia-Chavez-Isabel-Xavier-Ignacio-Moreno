@@ -57,11 +57,10 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <!-- <li class="menu-active"><a href="#hero">Inicio</a></li> -->
-          <li><a href="{% url 'inicio' %}">Inicio</a></li>
+          <!-- <li><a href="{% url 'inicio' %}">Inicio</a></li>
           <li><a href="{% url 'usuarios' %}">Usuarios</a></li>
           <li><a href="{% url 'donativo' %}">Donativos</a></li>
-          <li><a href="{% url 'biblioteca' %}">Biblioteca</a></li>
-          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="{% url 'biblioteca' %}">Biblioteca</a></li> -->
           <!-- <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -91,9 +90,12 @@
   {%block fondo%}
   <section id="hero">
     <div class="hero-container">
-      <h1>Libreria</h1>
-      <h1>CoderHouse</h1>
-      <h3>  by Django </h3>
+      <h3>Logout exitoso...</h3>
+      <h1>Gracias por visitarnos</h1>
+      <a href="{% url 'login' %}" class="btn-get-started">Iniciar sesion</a>
+      
+      
+      
       
     </div>
   </section><!-- #hero -->
