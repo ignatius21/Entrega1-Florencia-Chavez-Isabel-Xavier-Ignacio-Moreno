@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eliminar Usuario</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <style>
         body {
             background: rgb(182, 132, 155);
@@ -13,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h2 style="color: antiquewhite;font-family:Arial">Desea eliminar el usuario?:</h2>
+    <h2 style="color: antiquewhite;font-family:poppins">Desea eliminar el usuario?:</h2>
     <form action="" method="POST">{% csrf_token%}
         <ul>
             <li>Nombre: {{usuarios.nombre}}</li>

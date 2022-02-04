@@ -5,16 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Donativo</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <style>
         body {
-            background: rgb(48, 29, 70);
+            background: rgb(111, 148, 104);
+            padding-top: 200px;
+            padding-left: 600px;
             
         }
     </style>
 </head>
 
 <body>
-    <h2 style="color: antiquewhite;font-family: Arial;">Buscar Donantes</h2>
+    <h2 style="color: antiquewhite;font-family: poppins;">Buscar Donantes</h2>
 
     <form action="{%url 'respuestaDonativo' %}" method="GET">
         <input type="text" name="donativo" required>

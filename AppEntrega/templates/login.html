@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesion</title> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <style>
         body {
             background: rgb(58, 10, 44);
+            padding-top: 200px;
+            padding-left: 600px;
             
         }
     </style>
@@ -15,14 +18,18 @@
 </head> 
 
 <body>
+    <h1 style="color: white;text-transform: uppercase;font-family:poppins;">Ingrese su usuario y contraseña</h1>
    
     <form action="" method="POST">
         {%csrf_token%}
-        <table style="color: rgb(255, 255, 255);font-family: Arial;">
+        <table style="color: rgb(255, 255, 255);font-family: poppins;">
             {{form.as_table}}
         </table>
         
         <input type="submit" value="Iniciar Sesion">
+        <br>
+        <br>
+        <input type="button" value="Volver" onClick="history.go(-1);">
         
     </form>
    
