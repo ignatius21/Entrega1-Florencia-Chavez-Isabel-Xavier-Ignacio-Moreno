@@ -14,12 +14,12 @@
     </style>
 </head>
 <body>
-    <h2 style="color: antiquewhite;font-family:poppins">Desea eliminar el usuario?:</h2>
+    <h2 style="color: rgb(0, 0, 0);font-family:poppins;text-transform: uppercase;">Desea eliminar el usuario?:</h2>
     <form action="" method="POST">{% csrf_token%}
         <ul>
-            <li>Nombre: {{usuarios.nombre}}</li>
-            <li>Apellido: {{usuarios.apellido}}</li>
-            <li>Email: {{usuarios.email}}</li>
+            <li style="color: rgb(0, 0, 0);font-family:poppins">Nombre: {{usuarios.nombre}}</li>
+            <li style="color: rgb(0, 0, 0);font-family:poppins">Apellido: {{usuarios.apellido}}</li>
+            <li style="color: rgb(0, 0, 0);font-family:poppins">Email: {{usuarios.email}}</li>
         </ul>
         
 

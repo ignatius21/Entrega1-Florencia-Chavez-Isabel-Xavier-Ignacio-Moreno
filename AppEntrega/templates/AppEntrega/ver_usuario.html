@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle Usuario</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <style>
         body {
             background: rgb(133, 109, 102);
@@ -13,14 +14,14 @@
     </style>
 </head>
 <body>
-    <h2 style="color: antiquewhite;font-family:Arial">Detalle del usuario</h2>
+    <h2 style="color: rgb(0, 0, 0);font-family:poppins;text-transform: uppercase;">Detalles del usuario</h2>
     <form action="" method="POST"> 
     {% csrf_token%}
 
        <ul>
-           <li>Nombre: {{usuarios.nombre}}</li>
-           <li>Apellido: {{usuarios.apellido}}</li>
-           <li>Email: {{usuarios.email}}</li>
+           <li style="color: rgb(0, 0, 0);font-family:poppins">Nombre: {{usuarios.nombre}}</li>
+           <li style="color: rgb(0, 0, 0);font-family:poppins">Apellido: {{usuarios.apellido}}</li>
+           <li style="color: rgb(0, 0, 0);font-family:poppins">Email: {{usuarios.email}}</li>
        </ul> 
        <br>
         <br>
