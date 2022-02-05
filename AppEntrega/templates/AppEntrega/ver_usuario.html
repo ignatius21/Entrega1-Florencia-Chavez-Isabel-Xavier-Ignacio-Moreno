@@ -7,21 +7,61 @@
     <title>Detalle Usuario</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <style>
-        body {
-            background: rgb(133, 109, 102);
-            
+        body{
+            background: #242525;
+            margin: 0;
+            padding: 0;}
+        form h1{
+                color: white;
+                text-transform: uppercase;
+                font-weight: 500;}
+
+        form{
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 46%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #191919;
+            text-align: center;
+            }
+
+        
+        form input[type="button"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2e31cc;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+            font-family:poppins;
         }
+        
+        form input[type ="button"]:hover{
+            background: #2e31cc;
+            border: 2px solid #2e31cc;
+        }          
+
+
     </style>
 </head>
 <body>
-    <h2 style="color: rgb(0, 0, 0);font-family:poppins;text-transform: uppercase;">Detalles del usuario</h2>
+    
     <form action="" method="POST"> 
     {% csrf_token%}
+    <h1 style="font-family:poppins">Detalles del usuario</h1>
 
        <ul>
-           <li style="color: rgb(0, 0, 0);font-family:poppins">Nombre: {{usuarios.nombre}}</li>
-           <li style="color: rgb(0, 0, 0);font-family:poppins">Apellido: {{usuarios.apellido}}</li>
-           <li style="color: rgb(0, 0, 0);font-family:poppins">Email: {{usuarios.email}}</li>
+           <li style="color: rgb(255, 255, 255);font-family:poppins">Nombre: {{usuarios.nombre}}</li>
+           <li style="color: rgb(255, 255, 255);font-family:poppins">Apellido: {{usuarios.apellido}}</li>
+           <li style="color: rgb(255, 255, 255);font-family:poppins">Email: {{usuarios.email}}</li>
        </ul> 
        <br>
         <br>
