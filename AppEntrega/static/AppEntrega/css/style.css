@@ -228,15 +228,16 @@ h1, h2, h3, h4, h5, h6 {
 /* Nav Menu Essentials */
 .nav-menu, .nav-menu * {
   margin: 0;
-  padding: 0;
+  padding-right: 135px;
   list-style: none;
+  
 }
 
 .nav-menu ul {
-  position: absolute;
+  position: relative;
   display: none;
   top: 100%;
-  left: ;
+  left: 0 ;
   z-index: 99;
 }
 
@@ -313,7 +314,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu > li > a:before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 40%;
   height: 2px;
   bottom: 0;
   left: 0;
@@ -342,6 +343,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu ul li:first-child {
   border-top: 0;
+  
 }
 
 .nav-menu ul li a {
@@ -360,6 +362,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu ul ul {
   margin: 0;
+  
 }
 
 /* Mobile Nav Toggle */
