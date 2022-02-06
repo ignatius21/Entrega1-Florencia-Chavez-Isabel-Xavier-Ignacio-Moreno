@@ -7,25 +7,94 @@
     <title>Buscar Donativo</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
     <style>
-        body {
-            background: rgb(111, 148, 104);
-            padding-top: 200px;
-            padding-left: 600px;
+        body{
+            background: #242525;
+            margin: 0;
+            padding: 0;}
+        form h1{
+                color: white;
+                text-transform: uppercase;
+                font-weight: 500;}
+
+        form{
+            width: 300px;
+            padding: 40px;
+            position: absolute;
+            top: 46%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: #191919;
+            text-align: center;
             
         }
+
+        form input[type = "text"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #ff55a4;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;}  
+
+        form input[type="submit"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2eec71;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+            font-family:poppins;
+        }
+        form input[type ="submit"]:hover{
+            background: #2ecc71;
+        }
+        form input[type="button"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid #2e31cc;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+            font-family:poppins;
+        }
+        form input[type ="button"]:hover{
+            background: #2e31cc;
+            border: 2px solid #2e31cc;
+        }          
+
+
     </style>
 </head>
 
 <body>
-    <h2 style="color: antiquewhite;font-family: poppins;">Buscar Donantes</h2>
 
     <form action="{%url 'respuestaDonativo' %}" method="GET">
+        <h1 style="font-family: poppins;">Buscar Donantes</h1>
         <input type="text" name="donativo" required>
-        <input type="submit" value="Buscar Donativo">
+        <input type="submit" value="BUSCAR DONATIVO">
         <br>
         <br>
-        <input type="button" value="Volver" onClick="history.go(-1);">
+        <input type="button" value="VOLVER" onClick="history.go(-1);">
     </form>
+
 </body>
 
 </html>

@@ -20,7 +20,7 @@ class Usuarios(models.Model):
 
 class Donativo(models.Model):
     nombre = models.CharField(max_length=15)
-    donativo = models.IntegerField()
+    donativo = models.PositiveIntegerField()
     def __str__(self):
         return f'{self.nombre} ha donado ${self.donativo}...muchas gracias!!!'
     
