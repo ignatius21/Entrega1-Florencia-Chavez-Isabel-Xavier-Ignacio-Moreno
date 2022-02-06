@@ -60,6 +60,7 @@
           <li><a href="{% url 'donativo' %}">Donativos</a></li>
           <li><a href="{% url 'biblioteca' %}">Biblioteca</a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
+          
           <!-- <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -89,9 +90,16 @@
   {%block fondo%}
   <section id="hero">
     <div class="hero-container">
+      {%if request.user.is_authenticated%}
+          <p class="text-muted small mb-4 mb-1g-0">Hola {{user.username}}!</p>
+          {%endif%}
+          <br>
+          <br>
+          <br>
       <h1>Libreria</h1>
       <h1>CoderHouse</h1>
       <h3>  by Django </h3>
+      
       
     </div>
   </section><!-- #hero -->
