@@ -82,8 +82,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  padding: 30px 0;
-  height: 92px;
+  padding: 30px 20px;
+  height: 100px;
   position: absolute;
   left: 0;
   top: 0;
@@ -227,8 +227,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 /* Nav Menu Essentials */
 .nav-menu, .nav-menu * {
-  margin: 0;
-  padding-right: 137px;
+  margin: 0px;
+  padding-right: 140px;
   list-style: none;
   
 }
@@ -284,7 +284,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Nav Meu Container */
 #nav-menu-container {
-  float: right;
+  float: left;
   margin: 0;
 }
 
@@ -296,7 +296,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Nav Meu Styling */
 .nav-menu a {
-  padding: 0 8px 10px 8px;
+  padding: 0 120px 10px 8px;
   text-decoration: none;
   display: inline-block;
   color: #fff;
@@ -308,13 +308,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu > li {
-  margin-left: 10px;
+  margin-left: 5px;
+  padding-right: 15px;
 }
 
 .nav-menu > li > a:before {
   content: "";
   position: absolute;
-  width: 40%;
+  width: 35%;
   height: 2px;
   bottom: 0;
   left: 0;
@@ -333,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu ul {
-  margin: 4px 0 0 0;
+  margin: 2px 0 0 0;
   border: 1px solid #e7e7e7;
 }
 
