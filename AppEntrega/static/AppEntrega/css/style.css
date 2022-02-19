@@ -296,7 +296,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Nav Meu Styling */
 .nav-menu a {
-  padding: 0 120px 10px 8px;
+  padding: 0 50px 10px 8px;
   text-decoration: none;
   display: inline-block;
   color: #fff;
@@ -309,7 +309,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu > li {
   margin-left: 5px;
-  padding-right: 15px;
+  padding-right: 45px;
 }
 
 .nav-menu > li > a:before {

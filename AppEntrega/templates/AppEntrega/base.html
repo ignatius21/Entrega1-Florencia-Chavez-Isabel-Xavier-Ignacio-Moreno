@@ -54,7 +54,6 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <!-- <li class="menu-active"><a href="#hero">Inicio</a></li> -->
           <li><a href="{% url 'inicio' %}">Inicio</a></li>
           <li><a href="{% url 'usuarios' %}">Usuarios</a></li>
           <li><a href="{% url 'donativo' %}">Donativos</a></li>
@@ -63,6 +62,7 @@
           <li>{%if request.user.is_authenticated%}
             <p class="text-muted small mb-4 mb-1g-0">Hola {{user.username}}!</p>
           {%endif%}</li>
+          
           
           
           
