@@ -172,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero h1 {
-  margin: 20px 0 10px 0;
+  margin: 0px 0 10px 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 50px;
@@ -226,8 +226,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 /* Nav Menu Essentials */
 .nav-menu, .nav-menu * {
-  margin: auto;
-  padding-right: 140px;
+  margin: 5px;
+  padding-right: 50px;
   list-style: none;
   
 }
