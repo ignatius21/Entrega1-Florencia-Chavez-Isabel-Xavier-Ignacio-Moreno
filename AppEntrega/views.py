@@ -47,7 +47,12 @@ class BibliotecaCreateView(CreateView):
 class BibliotecaListView(ListView):
     model = Libros
     template_name = 'AppEntrega/biblioteca.html'
-    context_object_name = 'biblioteca'    
+    context_object_name = 'biblioteca' 
+
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
+        return contexto   
 
 
 def buscarLibro(request):
@@ -77,6 +82,11 @@ class DonativoListView(ListView):
     model = Donativo
     template_name = 'AppEntrega/donativo.html'
     context_object_name = 'donativos'
+    
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
+        return contexto
 
 def buscarDonativo(request):
     return render(request,'AppEntrega/buscarDonativo.html')    
@@ -97,6 +107,11 @@ class UsuarioListView(ListView):
     model = Usuarios
     template_name = 'AppEntrega/usuarios.html'
     context_object_name = 'usuarios'
+
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
+        return contexto
 
 class UsuarioDetailView(DetailView):
     model = Usuarios
