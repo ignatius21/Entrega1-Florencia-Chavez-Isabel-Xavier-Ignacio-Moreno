@@ -7,16 +7,16 @@ from django.db.models.fields import CharField,EmailField,PositiveIntegerField
 # Create your models here.
 
 class Libros(Model): 
-    nombre = CharField(max_length=15)
-    autor = CharField(max_length=15)
-    genero = CharField(max_length=15)
+    nombre = CharField(max_length=50)
+    autor = CharField(max_length=50)
+    genero = CharField(max_length=50)
     def __str__(self):
         return f' Nombre del libro: "{self.nombre}" / Autor: ({self.autor}) / Genero: ({self.genero})'
 
 
 class Usuarios(Model):
-    nombre = CharField(max_length=15)
-    apellido = CharField(max_length=15)
+    nombre = CharField(max_length=50)
+    apellido = CharField(max_length=50)
     email = EmailField()
     def __str__(self):
         return f'Usuario:  {self.nombre} '
@@ -24,7 +24,7 @@ class Usuarios(Model):
 
 
 class Donativo(Model):
-    nombre = CharField(max_length=15)
+    nombre = CharField(max_length=50)
     donativo = PositiveIntegerField()
     def __str__(self):
         return f'{self.nombre} ha donado ${self.donativo}...muchas gracias!!!'

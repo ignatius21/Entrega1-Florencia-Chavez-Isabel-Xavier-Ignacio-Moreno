@@ -87,7 +87,7 @@
 <body>
     
    
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         {%csrf_token%}
         <h1 style="font-family: poppins;">Login</h1>
         <table style="color: rgb(255, 255, 255);font-family: poppins;">
@@ -98,6 +98,7 @@
         <br>
         
         <input type="submit" value="Iniciar Sesion">
+        <br>
         
         <input type="button" value="Volver" onClick="history.go(-1);">
         

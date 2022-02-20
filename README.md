@@ -7,7 +7,7 @@ Dentro de la seccion "Usuarios" se encuentra la informacion del personal encarga
 En la pestaña "Donativos" se emulo  un formulario de ingreso y busqueda de donantes que quieran contribuir al proyecto.
 En la pestaña "Biblioteca" se peden observar los diferentes tipos de libros que esta posee,como asi tambien se incluyo el autor y el genero,la misma posee unos formularios de ingreso y busqueda de libros.
 Usamos un html nuevo,quisimos trabajar desde 0 (cero) el proyecto nuevo.
-Se le incluyo una presentacion formal al grupo de desarrolo en la pagina de inicio.
+Se le incluyo una presentacion formal al grupo de desarrollo en la pagina de inicio.
 se incluye la opcion de borrar al usuario, en la pestaña de usuarios.
 El mismo cuenta con un sistema de login y logout,el cual brinda la posibilidad de que el usuario pueda elegir su avatar.
 En el mismo posee un test de usuario para probar la funcionalidad del modelo creado.
