@@ -1,3 +1,4 @@
+from email.mime import image
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 
@@ -13,7 +14,7 @@ def inicio(request):
     if avatares:
         avatar_url = avatares.last().imagen.url
     else:
-        avatar_url = ''    
+        avatar_url = '#'
     return render(request,'AppEntrega/inicio.html',{'avatar_url': avatar_url})
 
 def inicio_login(request):
@@ -34,6 +35,12 @@ def donativo(request):
 
 
 
+class AvatarView:
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
+        return contexto
+
 
 
 
@@ -44,15 +51,10 @@ class BibliotecaCreateView(CreateView):
     fields = ['nombre','autor','genero']
     template_name = 'AppEntrega/libro_form.html'
 
-class BibliotecaListView(ListView):
+class BibliotecaListView(AvatarView,ListView):
     model = Libros
     template_name = 'AppEntrega/biblioteca.html'
     context_object_name = 'biblioteca' 
-
-    def get_context_data(self, **kwargs):
-        contexto = super().get_context_data(**kwargs)
-        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
-        return contexto   
 
 
 def buscarLibro(request):
@@ -78,15 +80,11 @@ class DonativoCreateView(CreateView):
     fields = ['nombre','donativo']
     template_name = 'AppEntrega/donativo_form.html'  
 
-class DonativoListView(ListView):
+class DonativoListView(AvatarView,ListView):
     model = Donativo
     template_name = 'AppEntrega/donativo.html'
     context_object_name = 'donativos'
-    
-    def get_context_data(self, **kwargs):
-        contexto = super().get_context_data(**kwargs)
-        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
-        return contexto
+
 
 def buscarDonativo(request):
     return render(request,'AppEntrega/buscarDonativo.html')    
@@ -103,15 +101,11 @@ def respuestaDonativo(request):
 
 
 
-class UsuarioListView(ListView):
+class UsuarioListView(AvatarView,ListView):
     model = Usuarios
     template_name = 'AppEntrega/usuarios.html'
     context_object_name = 'usuarios'
 
-    def get_context_data(self, **kwargs):
-        contexto = super().get_context_data(**kwargs)
-        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
-        return contexto
 
 class UsuarioDetailView(DetailView):
     model = Usuarios
