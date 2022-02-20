@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+
+from AppEntrega.forms import AvatarForm
 from .models import *
 from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView
 
@@ -7,7 +9,12 @@ from django.views.generic import ListView,DetailView,DeleteView,CreateView,Updat
 # Create your views here.
 
 def inicio(request):
-    return render(request,'AppEntrega/inicio.html')
+    avatares = Avatar.objects.filter(user=request.user)
+    if avatares:
+        avatar_url = avatares.last().imagen.url
+    else:
+        avatar_url = ''    
+    return render(request,'AppEntrega/inicio.html',{'avatar_url': avatar_url})
 
 def inicio_login(request):
     return render(request,'AppEntrega/inicio_login.html')
@@ -127,4 +134,13 @@ def respuestaUsuario(request):
 
    
 
-
+def agregar_avatar(request):
+    if request.method == 'POST':
+        formulario = AvatarForm(request.POST,request.FILES)
+        if formulario.is_valid():
+            avatar = Avatar(user=request.user,imagen=formulario.cleaned_data['imagen'])
+            avatar.save()
+            return redirect('inicio')
+    else:
+        formulario =AvatarForm()
+    return render(request, 'AppEntrega/crear_avatar.html',{'form':formulario})        

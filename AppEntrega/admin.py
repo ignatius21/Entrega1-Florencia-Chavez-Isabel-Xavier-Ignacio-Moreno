@@ -6,3 +6,4 @@ from .models import  *
 admin.site.register(Donativo)
 admin.site.register(Usuarios)
 admin.site.register(Libros)
+admin.site.register(Avatar)

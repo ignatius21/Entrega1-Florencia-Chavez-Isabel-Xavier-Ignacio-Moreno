@@ -1,4 +1,4 @@
-from django.forms import EmailField, Form,CharField, IntegerField
+from django.forms import EmailField, Form,CharField, IntegerField,ImageField
 
 class libroForm(Form):
     Nombre = CharField()
@@ -15,4 +15,7 @@ class usuarioForm(Form):
 class donativoForm(Form):
     Nombre = CharField()
     Monto = IntegerField()
+
+class AvatarForm(Form):
+    imagen = ImageField(required=True)
     

@@ -1,7 +1,8 @@
+from unicodedata import name
 from django.urls import path
 
 
-from AppEntrega.views import BibliotecaCreateView,inicio_login, BibliotecaListView, DonativoCreateView, DonativoListView, RespuestaLibro, UsuarioCreateView, UsuarioDeleteView,UsuarioDetailView, UsuarioListView, UsuarioUpdateView,buscarDonativo, buscarLibro, buscarUsuario,inicio, respuestaDonativo, respuestaUsuario
+from AppEntrega.views import BibliotecaCreateView, agregar_avatar,inicio_login, BibliotecaListView, DonativoCreateView, DonativoListView, RespuestaLibro, UsuarioCreateView, UsuarioDeleteView,UsuarioDetailView, UsuarioListView, UsuarioUpdateView,buscarDonativo, buscarLibro, buscarUsuario,inicio, respuestaDonativo, respuestaUsuario
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
@@ -34,5 +35,7 @@ urlpatterns = [
     path('buscarLibro',login_required(buscarLibro),name='buscarLibro'),
 
     
-    
+    path('crear_avatar',login_required(agregar_avatar),name='crear_avatar')
+
+
 ]
